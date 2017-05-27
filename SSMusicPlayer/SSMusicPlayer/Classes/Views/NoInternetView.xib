@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="17X-8n-UJv" customClass="NoInternetView" customModule="SSMusicPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="No_Network" translatesAutoresizingMaskIntoConstraints="NO" id="KzS-uE-tfw">
+                    <rect key="frame" x="137.5" y="150" width="100" height="100"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="7OR-2z-24W"/>
+                        <constraint firstAttribute="width" constant="100" id="Jur-4O-9d3"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No internet connection in your device" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IzL-Ij-JMt">
+                    <rect key="frame" x="30" y="267" width="315" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RI9-SM-YYm">
+                    <rect key="frame" x="161" y="303" width="53" height="30"/>
+                    <state key="normal" title="Refresh">
+                        <color key="titleColor" red="0.0" green="0.72941176470000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didTapRefreshButton:" destination="17X-8n-UJv" eventType="touchUpInside" id="lmt-EJ-6Zk"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="IzL-Ij-JMt" firstAttribute="top" secondItem="KzS-uE-tfw" secondAttribute="bottom" constant="17" id="10t-5Z-U55"/>
+                <constraint firstItem="KzS-uE-tfw" firstAttribute="top" secondItem="17X-8n-UJv" secondAttribute="top" constant="150" id="3aJ-Vc-nzG"/>
+                <constraint firstItem="KzS-uE-tfw" firstAttribute="centerX" secondItem="17X-8n-UJv" secondAttribute="centerX" id="AN7-2F-hp6"/>
+                <constraint firstAttribute="trailing" secondItem="IzL-Ij-JMt" secondAttribute="trailing" constant="30" id="I1x-Ah-FBj"/>
+                <constraint firstItem="RI9-SM-YYm" firstAttribute="top" secondItem="IzL-Ij-JMt" secondAttribute="bottom" constant="15" id="OIF-zY-CD8"/>
+                <constraint firstItem="RI9-SM-YYm" firstAttribute="centerX" secondItem="IzL-Ij-JMt" secondAttribute="centerX" id="Tdj-B8-YQY"/>
+                <constraint firstItem="IzL-Ij-JMt" firstAttribute="leading" secondItem="17X-8n-UJv" secondAttribute="leading" constant="30" id="hFI-Xk-tRF"/>
+            </constraints>
+            <connections>
+                <outlet property="refreshButton" destination="RI9-SM-YYm" id="BK8-hR-61F"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="No_Network" width="256" height="256"/>
+    </resources>
+</document>
