@@ -85,7 +85,7 @@ class MusicPlayerViewController: UIViewController {
     
     
     
-    func slidelViewSetup(_ song: Song) {
+    func sliderViewSetup(_ song: Song) {
         progressSlider.maximumValue = Float(song.duration)
         endDurationLabel.text = getFormattedTimeAsString(isForDuration: true)
         progressSlider.minimumValue = Float(player?.currentTime ?? 0.0)
@@ -191,7 +191,8 @@ fileprivate extension MusicPlayerViewController {
                         let noInternetView = NoInternetView.getNoInternetView(with: self)
                         noInternetView?.showView(self?.view)
                     } else {
-                        
+                        let alert = UIAlertView(title: "Error !", message: error.localizedDescription, delegate: nil, cancelButtonTitle: "OK")
+                        alert.show()
                     }
                     print(error)
                 } else if let soundData = data {
@@ -203,7 +204,7 @@ fileprivate extension MusicPlayerViewController {
                         dict[MPMediaItemPropertyTitle] = song.name
                         dict[MPMediaItemPropertyPlaybackDuration] = song.duration
                         MPNowPlayingInfoCenter.default().nowPlayingInfo = dict
-                        self?.slidelViewSetup(song)
+                        self?.sliderViewSetup(song)
                         handler?(true)
                     } catch {
                         handler?(false)
@@ -251,7 +252,7 @@ fileprivate extension MusicPlayerViewController {
     }
     
     
-    /// This will start timer to update status bar
+    /// This will start timer to update slider bar
     func startTimer() {
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateProgressBar), userInfo: nil, repeats: true)
     }
